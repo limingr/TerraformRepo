@@ -14,6 +14,8 @@ terraform {
     key                   = "terraform.mytfstate"
   } */
 
+   backend "local" {}
+
   required_version = ">= 0.14.9"
 }
 
