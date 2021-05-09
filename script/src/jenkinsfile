@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    
+    environment {
+        AZURE_SUBSCRIPTION_ID='aae27198-c02d-49fc-a164-d45d35267dd2'
+        AZURE_TENANT_ID='e22100bd-861d-4f4c-a190-7c4f45feeccf'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building....'
+                sh 'pwd'
+                sh 'terraform init'
+            }
+        }
+        stage('Test') {
+            steps {
+                withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
+                    dir("."){
+/*                         sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
+                        sh 'az account set -s $AZURE_SUBSCRIPTION_ID' */
+                        sh 'terraform init'
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
