@@ -21,6 +21,7 @@ pipeline {
                         set -e
                         terraform workspace new wsdeploy || true
                         terraform workspace select wsdeploy
+                        terraform init -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
                         terraform plan -destroy  -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
                         sh """
                     }
