@@ -19,8 +19,8 @@ pipeline {
                     dir('.'){
                         sh """#!/bin/bash
                         set -e
-                        terraform workspace new wsdestroy || true
-                        terraform workspace select wsdestroy
+                        terraform workspace new wsdeploy || true
+                        terraform workspace select wsdeploy
                         terraform plan -destroy  -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
                         sh """
                     }
