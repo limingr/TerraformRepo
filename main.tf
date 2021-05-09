@@ -148,3 +148,21 @@ output "public_ip_address" {
   value = data.azurerm_public_ip.ip.ip_address
 }
 
+data "azurerm_subscription" "current" {
+}
+
+output "current_subscription_display_name" {
+  value = data.azurerm_subscription.current.display_name
+}
+
+data "azurerm_client_config" "current" {
+}
+
+output "tenant_id" {
+  value = data.azurerm_client_config.current.client_id
+}
+
+output "account_id" {
+  value = data.azurerm_client_config.current.tenant_id
+}
+
