@@ -22,7 +22,6 @@ pipeline {
                         terraform workspace new wsdestroy || true
                         terraform workspace select wsdestroy
                         terraform plan -destroy  -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
-                        terraform workspace delete wsdestroy
                         sh """
                     }
                 }

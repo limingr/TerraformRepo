@@ -26,7 +26,6 @@ pipeline {
                         terraform init -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
                         terraform plan -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -out=deployCodePlan
                         terraform apply -no-color deployCodePlan
-                        terraform workspace delete wsdeploy
                         sh """
                     }
                 }
