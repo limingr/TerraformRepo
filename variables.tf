@@ -1,8 +1,3 @@
-resource "azurerm_subscription" "example" {
-  alias             = "examplesub"
-  subscription_name = "Visual Studio Enterprise Subscription"
-  subscription_id   = "aae27198-c02d-49fc-a164-d45d35267dd2"
-}
 
 variable "location" {}
 
