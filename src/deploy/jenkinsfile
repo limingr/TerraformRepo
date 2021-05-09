@@ -21,8 +21,8 @@ pipeline {
                         sh 'az account set -s $AZURE_SUBSCRIPTION_ID' */
                         sh """#!/bin/bash
                         set -e
-                        terraform workspace new wsdeploy || true
-                        terraform workspace select wsdeploy
+                        terraform workspace new wsdeploy2 || true
+                        terraform workspace select wsdeploy2
                         terraform init -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
                         terraform plan -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -out=deployCodePlan
                         terraform apply -no-color deployCodePlan
