@@ -48,6 +48,11 @@ variable "admin_password" {
     description = "Password must meet Azure complexity requirements"
 }
 
+variable "client_secret" {
+    type = string
+    description = "service principal secret"
+}
+
 # Create subnet
 resource "azurerm_subnet" "subnet" {
   name                 = "myTFSubnet"
