@@ -7,12 +7,13 @@ terraform {
     }
   }
 
- /*  backend "azurerm" {
-    resource_group_name   = "tstate"
+  backend "azurerm" {
+/*     resource_group_name   = "tstate"
     storage_account_name  = "tstate13126"
     container_name        = "tstate"
-    key                   = "terraform.mytfstate"
-  } */
+    key                   = "terraform.mytfstate" */
+  }
+
 
   required_version = ">= 0.14.9"
 }
