@@ -21,6 +21,7 @@ pipeline {
                         sh 'az account set -s $AZURE_SUBSCRIPTION_ID' */
                         sh """#!/bin/bash
                         set -e
+                        terraform --version
                         terraform workspace new wsdeploy2 || true
                         terraform workspace select wsdeploy2
                         terraform init
