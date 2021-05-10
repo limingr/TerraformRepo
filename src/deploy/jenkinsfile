@@ -23,12 +23,13 @@ pipeline {
                         set -e
                         terraform workspace new wsdeploy2 || true
                         terraform workspace select wsdeploy2
+                        terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
                             -backend-config='container_name=tstate' \
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=99nPCKyui87OegRjeSTYFmcNy/mMNoI3VFCn9CUWiKwTM3cR+e5NeL10ZareLxlmEqvrNEGgMLP816VsDJHa4Q=='
-                            
+
                         terraform plan -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -out=deployCodePlan
                         terraform apply -no-color deployCodePlan
                         sh """
