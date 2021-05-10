@@ -35,7 +35,7 @@ pipeline {
                             -backend-config='access_key=99nPCKyui87OegRjeSTYFmcNy/mMNoI3VFCn9CUWiKwTM3cR+e5NeL10ZareLxlmEqvrNEGgMLP816VsDJHa4Q=='
 
                         terraform plan -destroy  -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
-                        terraform -no-color -var client_secret='${AZURE_CLIENT_SECRET}' destroy  -auto-approve
+                        terraform destroy -auto-approve -no-color -var client_secret='${AZURE_CLIENT_SECRET}'
  
                         sh """
                     }
