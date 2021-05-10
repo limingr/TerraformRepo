@@ -32,7 +32,7 @@ pipeline {
 
 
                         terraform workspace new wsdeploy || true
-                        terraform workspace select wsdeploy2
+                        terraform workspace select wsdeploy
                         terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
