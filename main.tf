@@ -29,7 +29,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup7"
+  type = string
+  // name     = "myTFResourceGroup7"
   location = "westus2"
 
 /*   tags = {
