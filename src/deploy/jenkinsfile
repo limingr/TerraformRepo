@@ -11,11 +11,23 @@ pipeline {
 
     stages {
         stage('Build') {
+            when {
+                // case insensitive regular expression for truthy values
+                expression { "${params.BUILD_ENV}".startsWith('ws') }
+            }
             steps {
                 echo 'Building....'
                 sh 'pwd'
             }
         }
+
+        stage('while') {
+            steps {
+                echo 'Building....'
+                sh 'pwd'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
