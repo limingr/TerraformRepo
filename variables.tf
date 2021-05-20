@@ -16,6 +16,7 @@ variable "tags" {
 }
 
 variable "sku" {
+  type = map
   default = {
     westus2 = "16.04-LTS"
     eastus  = "18.04-LTS"
@@ -25,5 +26,10 @@ variable "sku" {
 variable "rg_name" {
     type = string
     description = "resource group name"
+}
+
+variable "environment" {
+    type = string
+    value = "Environment"
 }
 
