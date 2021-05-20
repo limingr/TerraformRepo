@@ -43,7 +43,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_virtual_network" "vnet" {
     name                = "myTFVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "westus2"
+    location            =  azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
 }
 
@@ -155,6 +155,19 @@ resource "azurerm_virtual_machine" "vm" {
 
   tags = var.tags
 
+}
+
+resource "azurerm_cognitive_account" "my_cognitive" {
+  name                = "example-account"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  kind                = "LUIS"
+
+  sku_name = "S0"
+
+  tags = {
+    Acceptance = "Test"
+  }
 }
 
 data "azurerm_public_ip" "ip" {
