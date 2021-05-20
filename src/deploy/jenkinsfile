@@ -52,7 +52,9 @@ pipeline {
             }
         }
         stage('Starting ART job') {
+          steps {
             build job: 'myDestroy', parameters: [[$class: 'StringParameterValue', name: 'test', value: wsdeploy]]
+          }
         }
     }
 }
