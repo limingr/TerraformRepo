@@ -58,6 +58,13 @@ pipeline {
                     else {
                         echo 'BUILD_ENV does not start with ws....'
                     }
+
+                    if ("${params.BUILD_ENV}".startsWith('ws')){ 
+                        echo '2 BUILD_ENV starts with ws....'
+                    }
+                    else {
+                        echo '2 BUILD_ENV does not start with ws....'
+                    }
                 }
             }
         }
