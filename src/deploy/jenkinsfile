@@ -50,11 +50,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                if ((env.BRANCH_NAME).startsWith('ws')){ 
-                    echo 'BUILD_ENV starts with ws....'
-                }
-                else {
-                    echo 'BUILD_ENV does not start with ws....'
+                script {
+                    if ((env.BRANCH_NAME).startsWith('ws')){ 
+                        echo 'BUILD_ENV starts with ws....'
+                    }
+                    else {
+                        echo 'BUILD_ENV does not start with ws....'
+                    }
                 }
             }
         }
