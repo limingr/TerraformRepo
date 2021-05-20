@@ -163,7 +163,7 @@ resource "azurerm_cognitive_account" "my_cognitive" {
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "LUIS"
 
-  sku_name = "S0"
+  sku_name = "F0"
 
   tags = {
     Acceptance = "Test"
