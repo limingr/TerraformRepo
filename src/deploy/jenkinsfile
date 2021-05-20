@@ -50,11 +50,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                String  teststr=String.valueOf(BUILD_ENV)
-                if(teststr.startsWith("ws"))
+                if (env.BRANCH_NAME).startsWith('ws')){ 
                     echo 'BUILD_ENV starts with ws....'
-                else
+                }
+                else {
                     echo 'BUILD_ENV does not start with ws....'
+                }
             }
         }
 
@@ -66,3 +67,5 @@ pipeline {
         }
     }
 }
+
+
