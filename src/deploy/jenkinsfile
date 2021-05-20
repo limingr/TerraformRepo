@@ -51,7 +51,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Starting ART job') {
+        stage('Starting myDestroy job') {
           steps {
             build job: 'myDestroy', parameters: [[$class: 'StringParameterValue', name: 'test', value: wsdeploy]]
           }
