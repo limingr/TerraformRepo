@@ -99,7 +99,9 @@ pipeline {
 
         stage('Starting myDestroy job') {
           steps {
+            echo 'Starting....'
             // build job: 'myDestroy', parameters: [string(name: 'BUILD_ENV', value: String.valueOf(BUILD_ENV))]
+
           }
         }
     }
