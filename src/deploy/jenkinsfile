@@ -32,6 +32,17 @@ pipeline {
             }
         }
 
+        stage('expression 3') {
+            when {
+                // case insensitive regular expression for truthy values
+                expression { env.AZURE_BACKEND_STORAGE_SECRET.startsWith('ws') }
+            }
+            steps {
+                echo 'Building....'
+                sh 'pwd'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
