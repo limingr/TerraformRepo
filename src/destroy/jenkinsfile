@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-    parameters { text(name: 'test', defaultValue: 'wsdepploy', description: '') }
+    parameters { text(name: 'BUILD_ENV', defaultValue: 'wsdeploy', description: '') }
     
     environment {
         AZURE_SUBSCRIPTION_ID='aae27198-c02d-49fc-a164-d45d35267dd2'
@@ -29,8 +29,8 @@ pipeline {
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
-                        terraform workspace new wsdeploy || true
-                        terraform workspace select wsdeploy
+                        terraform workspace new ${BUILD_ENV}  || true
+                        terraform workspace select ${BUILD_ENV} 
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
                             -backend-config='container_name=tstate' \
