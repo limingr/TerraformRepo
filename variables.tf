@@ -1,5 +1,8 @@
 
-variable "location" {}
+variable "location" {
+    type    = string
+    default = "westus2"
+}
 
 variable "prefix" {
   type    = string
