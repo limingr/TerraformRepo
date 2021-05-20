@@ -29,7 +29,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = rg_name.name
+  name     = var.rg_name
   location = "westus2"
 
 /*   tags = {
