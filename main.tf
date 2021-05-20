@@ -47,11 +47,6 @@ resource "azurerm_virtual_network" "vnet" {
     resource_group_name = azurerm_resource_group.rg.name
 }
 
-variable "rg_name" {
-    type = string
-    description = "resource group name"
-}
-
 variable "admin_username" {
     type = string
     description = "Administrator user name for virtual machine"
