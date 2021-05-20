@@ -10,7 +10,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('expression') {
             when {
                 // case insensitive regular expression for truthy values
                 expression { "${params.BUILD_ENV}".startsWith('ws') }
@@ -21,7 +21,11 @@ pipeline {
             }
         }
 
-        stage('while') {
+        stage('expression 2') {
+            when {
+                // case insensitive regular expression for truthy values
+                expression { params.BUILD_ENV.startsWith('ws') }
+            }
             steps {
                 echo 'Building....'
                 sh 'pwd'
