@@ -159,7 +159,7 @@ resource "azurerm_virtual_machine" "vm" {
 
 }
 
-resource "azurerm_cognitive_account" "my_cognitive" {
+/* resource "azurerm_cognitive_account" "my_cognitive" {
   name                = "example-account"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -169,7 +169,7 @@ resource "azurerm_cognitive_account" "my_cognitive" {
   tags = {
     Acceptance =lookup(var.tags, var.myTag)
   }
-}
+} */
 
 data "azurerm_public_ip" "ip" {
   name                = azurerm_public_ip.publicip.name
