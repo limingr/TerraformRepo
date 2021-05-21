@@ -29,7 +29,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = var.rg_name
+  //name     = var.rg_name
+  name = regex("^perf", var.suggested_rg_name)? "perf": var.suggested_rg_name
   location = var.location
 
 /*   tags = {
