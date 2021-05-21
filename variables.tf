@@ -15,6 +15,7 @@ variable "tags" {
   default = {
     Environment = "Terraform GS"
     Dept        = "Engineering"
+    MyTag       = "MyTagValue"
   }
 }
 
@@ -31,8 +32,8 @@ variable "rg_name" {
     description = "resource group name"
 }
 
-variable "environment" {
+variable "myTag" {
     type = string
-    default = "Environment"
+    default = "MyTag"
 }
 
