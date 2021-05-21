@@ -20,7 +20,15 @@ pipeline {
                 sh 'pwd'
             }
         }
-
+        stage('Foo') {
+        steps {
+            script {
+                def now = new Date()
+                env.BUILD_ENV = env.BUILD_ENV+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+                println now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+            }
+        } 
+        }
         stage('expression 2') {
             when {
                 // case insensitive regular expression for truthy values
