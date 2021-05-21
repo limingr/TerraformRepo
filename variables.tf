@@ -30,6 +30,12 @@ variable "sku" {
 variable "rg_name" {
     type = string
     description = "resource group name"
+    default = regex("^perf", var.suggested_rg_name)? "perf": var.suggested_rg_name
+}
+
+variable "suggested_rg_name" {
+    type = string
+    description = "resource group name"
 }
 
 variable "myTag" {

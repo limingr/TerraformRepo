@@ -68,7 +68,7 @@ pipeline {
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
-                        terraform plan -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -var rg_name='${BUILD_ENV}' -out=deployCodePlan
+                        terraform plan -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -var suggested_rg_name='${BUILD_ENV}' -out=deployCodePlan
                         terraform apply -no-color deployCodePlan
                         sh """
                     }
