@@ -165,7 +165,7 @@ resource "azurerm_cognitive_account" "my_cognitive" {
 
   sku_name = "F0"
   tags = {
-    Acceptance = "Test"
+    Acceptance =lookup(var.tags, var.Mytag)
   }
 }
 

@@ -34,6 +34,6 @@ variable "rg_name" {
 
 variable "myTag" {
     type = string
-    default = "MyTag"
+    default = "Environment"
 }
 
