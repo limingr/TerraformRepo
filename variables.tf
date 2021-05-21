@@ -19,6 +19,15 @@ variable "tags" {
   }
 }
 
+variable "rg_tags" {
+  type = map
+
+  default = {
+    Environment = "Terraform Getting Started"
+    Team = "DevOps"
+  }
+}
+
 variable "sku" {
   type = map
   default = {

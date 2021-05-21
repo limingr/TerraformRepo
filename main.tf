@@ -29,16 +29,9 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  //name     = var.rg_name
-  // name = regex("^perf", var.suggested_rg_name)? "perf": var.suggested_rg_name
   name = length(regexall("^perf", var.suggested_rg_name)) > 0 ? "perf": var.suggested_rg_name
   location = var.location
-
-/*   tags = {
-        Environment = "Terraform Getting Started"
-        Team = "DevOps"
-    } */
-    tags = var.tags
+  tags = var.rg_tags
 }
 
 # Create a virtual network
