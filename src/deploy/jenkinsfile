@@ -120,7 +120,7 @@ pipeline {
 
 def get_datatime() {
     def now = new Date()
-    return ${BUILD_ENV_PREFIX}+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+    return "${BUILD_ENV_PREFIX}"+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
 }
 
 
