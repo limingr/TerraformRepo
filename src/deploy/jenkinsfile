@@ -73,6 +73,7 @@ pipeline {
                         terraform workspace new ${BUILD_ENV} || true
                         terraform workspace select ${BUILD_ENV}
 
+                        // next init is required, don't delete.
                         terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
