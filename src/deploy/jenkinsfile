@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-    parameters { text(name: 'BUILD_ENV', defaultValue: 'wsdeploy', description: '') }
+    parameters { text(name: 'BUILD_ENV_PREFIX', defaultValue: 'wsdeploy', description: '') }
 
     environment {
         AZURE_SUBSCRIPTION_ID='aae27198-c02d-49fc-a164-d45d35267dd2'
@@ -23,9 +23,10 @@ pipeline {
         stage('Foo') {
             steps {
                 script {
+                    println params.BUILD_ENV_PREFIX
                     def now = new Date()
-                    env.BUILD_ENV = env.BUILD_ENV+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
-                    println now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+                    BUILD_ENV = params.BUILD_ENV_PREFIX+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+                    println "${BUILD_ENV}"
                 }
             } 
         }
