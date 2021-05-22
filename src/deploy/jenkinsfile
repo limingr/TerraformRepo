@@ -110,7 +110,7 @@ pipeline {
 
         stage('Starting myDestroy job') {
           steps {
-            echo 'Starting....'
+            echo "Starting job with BUILD_ENV=${BUILD_ENV}..."
             build job: 'myDestroy', parameters: [string(name: 'BUILD_ENV', value: String.valueOf(BUILD_ENV))]
 
           }

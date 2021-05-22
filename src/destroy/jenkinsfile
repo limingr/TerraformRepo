@@ -13,6 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building....'
+                echo "BUILD_ENV = ${BUILD_ENV}"
                 sh 'pwd'
             }
         }
