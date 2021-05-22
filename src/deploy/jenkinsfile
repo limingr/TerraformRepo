@@ -72,7 +72,8 @@ pipeline {
 
                         terraform workspace new ${BUILD_ENV} || true
                         terraform workspace select ${BUILD_ENV}
-                        terraform init
+
+                        //terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
                             -backend-config='container_name=tstate' \
@@ -112,7 +113,6 @@ pipeline {
           steps {
             echo "Starting job with BUILD_ENV=${BUILD_ENV}..."
             build job: 'myDestroy', parameters: [string(name: 'BUILD_ENV', value: String.valueOf(BUILD_ENV))]
-
           }
         }
     }
