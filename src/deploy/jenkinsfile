@@ -34,7 +34,7 @@ pipeline {
         stage('expression 2') {
             when {
                 // case insensitive regular expression for truthy values
-                expression { params.BUILD_ENV.startsWith('ws') }
+                expression { env.BUILD_ENV.startsWith('ws') }
             }
             steps {
                 echo 'Building....'
