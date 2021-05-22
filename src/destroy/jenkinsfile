@@ -30,6 +30,7 @@ pipeline {
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
+                        echo "select workspace ${BUILD_ENV}... "
                         terraform workspace new ${BUILD_ENV}  || true
                         terraform workspace select ${BUILD_ENV} 
                         terraform init -no-color \
