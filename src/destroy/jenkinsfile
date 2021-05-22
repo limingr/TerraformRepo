@@ -34,7 +34,6 @@ pipeline {
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
-                        // The second init is needed, don't delete
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
                             -backend-config='container_name=tstate' \
