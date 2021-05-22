@@ -7,7 +7,8 @@ pipeline {
         AZURE_SUBSCRIPTION_ID='aae27198-c02d-49fc-a164-d45d35267dd2'
         AZURE_TENANT_ID='e22100bd-861d-4f4c-a190-7c4f45feeccf'
         AZURE_BACKEND_STORAGE_SECRET = credentials('terraform_state_azure_backend_storage_key')
-        BUILD_ENV =''
+        CURRENT_TIME = get_datatime()
+        BUILD_ENV ="${BUILD_ENV_PREFIX}${CURRENT_TIME}"
     }
 
     stages {
@@ -115,6 +116,11 @@ pipeline {
           }
         }
     }
+}
+
+def get_datatime() {
+    def now = new Date()
+    return +now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
 }
 
 
