@@ -58,6 +58,7 @@ pipeline {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
                     dir('.'){
+                        deleteDir()
                         sh """#!/bin/bash
                         set -e
 
