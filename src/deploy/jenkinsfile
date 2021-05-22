@@ -14,7 +14,7 @@ pipeline {
         stage('expression') {
             when {
                 // case insensitive regular expression for truthy values
-                expression { "${params.BUILD_ENV}".startsWith('ws') }
+                expression { "${params.BUILD_ENV_PREFIX}".startsWith('ws') }
             }
             steps {
                 echo 'Building....'
@@ -96,7 +96,7 @@ pipeline {
                         echo 'BUILD_ENV does not start with ws....'
                     }
 
-                    if ("${params.BUILD_ENV}".startsWith('ws')){ 
+                    if ("${env.BUILD_ENV}".startsWith('ws')){ 
                         echo '2 BUILD_ENV starts with ws....'
                     }
                     else {
