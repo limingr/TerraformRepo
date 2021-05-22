@@ -70,8 +70,8 @@ pipeline {
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
 
-                        terraform workspace new "${BUILD_ENV_PREFIX}${CURRENT_TIME}" || true
-                        terraform workspace select "${BUILD_ENV_PREFIX}${CURRENT_TIME}" 
+                        terraform workspace new ${CURRENT_TIME} || true
+                        terraform workspace select ${CURRENT_TIME}
                         terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
