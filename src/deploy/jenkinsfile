@@ -26,6 +26,7 @@ pipeline {
             steps {
                 script {
                     println params.BUILD_ENV_PREFIX
+                    println env.BUILD_ENV
                     def now = new Date()
                     env.BUILD_ENV = params.BUILD_ENV_PREFIX+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
                     println "${env.BUILD_ENV}"
