@@ -181,6 +181,10 @@ output "current_subscription_display_name" {
   value = data.azurerm_subscription.current.display_name
 }
 
+output "current_subscription_display_name" {
+  value = data.azurerm_subscription.current.display_name
+}
+
 data "azurerm_client_config" "current" {
 }
 
@@ -191,4 +195,9 @@ output "tenant_id" {
 output "account_id" {
   value = data.azurerm_client_config.current.tenant_id
 }
+
+output "resource_group_name" {
+  value = data.azurerm_resource_group.rg.name
+}
+
 
