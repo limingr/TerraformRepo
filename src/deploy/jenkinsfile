@@ -8,7 +8,7 @@ pipeline {
         AZURE_TENANT_ID='e22100bd-861d-4f4c-a190-7c4f45feeccf'
         AZURE_BACKEND_STORAGE_SECRET = credentials('terraform_state_azure_backend_storage_key')
         CURRENT_TIME = get_datatime()
-        BUILD_ENV ="${BUILD_ENV_PREFIX}${CURRENT_TIME}"
+        BUILD_ENV ='test'
     }
 
     stages {
@@ -70,8 +70,8 @@ pipeline {
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
 
-                        terraform workspace new ${BUILD_ENV} || true
-                        terraform workspace select ${BUILD_ENV} 
+                        terraform workspace new ${BUILD_ENV_PREFIX}${CURRENT_TIME} || true
+                        terraform workspace select ${BUILD_ENV_PREFIX}${CURRENT_TIME} 
                         terraform init
                         terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
