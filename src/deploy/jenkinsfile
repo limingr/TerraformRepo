@@ -26,8 +26,8 @@ pipeline {
                 script {
                     println params.BUILD_ENV_PREFIX
                     def now = new Date()
-                    BUILD_ENV = params.BUILD_ENV_PREFIX+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
-                    println '${BUILD_ENV}'
+                    env.BUILD_ENV = params.BUILD_ENV_PREFIX+now.format("yyMMddHHmm", TimeZone.getTimeZone('UTC'))
+                    println "${BUILD_ENV}"
                 }
             } 
         }
