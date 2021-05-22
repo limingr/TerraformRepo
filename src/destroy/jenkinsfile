@@ -23,7 +23,7 @@ pipeline {
                     dir('.'){
                         sh """#!/bin/bash
                         set -e
-
+                        
                         echo "select workspace ${BUILD_ENV}... "
                         terraform workspace new ${BUILD_ENV}  || true
                         terraform workspace select ${BUILD_ENV} 
@@ -34,13 +34,13 @@ pipeline {
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
 
-
-/*                         terraform init -no-color \
+                        // The second init is needed, don't delete
+                        terraform init -no-color \
                             -backend-config='storage_account_name=tstate13126' \
                             -backend-config='container_name=tstate' \
                             -backend-config='key=terraform.mytfstate' \
                             -backend-config='access_key=${AZURE_BACKEND_STORAGE_SECRET}'
- */
+
                         terraform plan -destroy  -no-color -var client_secret='${AZURE_CLIENT_SECRET}'  -var suggested_rg_name='${BUILD_ENV}'
                         terraform destroy -auto-approve -no-color -var client_secret='${AZURE_CLIENT_SECRET}' -var suggested_rg_name='${BUILD_ENV}'
  
