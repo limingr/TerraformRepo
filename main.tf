@@ -192,8 +192,11 @@ output "account_id" {
   value = data.azurerm_client_config.current.tenant_id
 }
 
-output "resource_group_name" {
-  value = data.azurerm_resource_group.rg.name
-}
+# data "azurerm_subscription" "current" {
+# }
+
+# output "resource_group_name" {
+#   value = data.azurerm_resource_group.rg.name
+# }
 
 
